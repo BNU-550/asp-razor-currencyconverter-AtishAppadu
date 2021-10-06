@@ -10,6 +10,9 @@ namespace RazorCurrencyConverter.Pages
 {
     public class IndexModel : PageModel
     {
+        [BindProperty]
+        public string FullName { get; set; }
+
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
@@ -19,7 +22,21 @@ namespace RazorCurrencyConverter.Pages
 
         public void OnGet()
         {
-
+            FullName = "Atish Appadu";
         }
+        public void OnPost()
+        {
+            if(string.IsNullOrWhiteSpace(FullName))
+            {
+                ViewData["NoName"] = "Please Enter a Name";
+                FullName = "Atish Appadu";
+            }
+            else
+            {
+                ViewData["Message"] = "Name is Registered!";
+                // the user is registered
+            }
+        }
+
     }
 }
