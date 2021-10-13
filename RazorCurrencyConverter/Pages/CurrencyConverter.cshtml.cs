@@ -30,7 +30,7 @@ namespace RazorCurrencyConverter.Pages
             else if( InputGBP > 0 )
             {
                 OutputEUR = InputGBP * GBP_To_EUR;
-                ViewData
+               
             }
         }
     }
